@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
-import User from './user.model.js';
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import User from "../models/user.model.js"
 
 // Función para iniciar sesión
 export const login = async (req, res) => {

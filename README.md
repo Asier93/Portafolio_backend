@@ -7,10 +7,13 @@
 - npm i nodemon -D
 - npm i morgan
 - npm install mongoose (validar los datos)
+- npm install cookie-parser
 
 ### ENCRIPTAR UNA CONTRASEÑA Y GENERAN UN TOKEN
 - npm i bcryptjs
+- npm install bcrypt
 - npm i jsonwebtoken
+- npm install dotenv --save
 
 
 ### CRUD

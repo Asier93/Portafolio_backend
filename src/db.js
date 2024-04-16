@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
-require('dotenv').config();
+import mongoose from "mongoose";
+import dotenv from 'dotenv';
+dotenv.config();
 
-// Función para conectar a la base de datos
-async function conectarDB() {
-  try {
+export const connectDB = async () =>{
+  try{
     await mongoose.connect(process.env.DB_URI);
     console.log('Conectado a MongoDB');
   } catch (error) {
@@ -12,4 +12,3 @@ async function conectarDB() {
   }
 }
 
-module.exports = conectarDB;
