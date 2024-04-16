@@ -15,18 +15,8 @@ const userSchema = new mongoose.Schema({
     password:{
         type: String,
         required:true
-    },
-    message:{
-        type: String,
-        // required: true,
-        trim: true,
-        
-    },
-    // rol: {
-    //     type: String,
-    //     enum: ['guest', 'admin'], 
-    //     required: true
-    // }
+    }
+    
 
 },{timestamps:true})
 
