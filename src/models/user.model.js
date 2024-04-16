@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const userSchema = new mongoose.Schema({
     username:{
         type: String, //validaciones
-        // required: true,
+        required: true,
         trim:true
     },
     email:{
@@ -22,11 +22,11 @@ const userSchema = new mongoose.Schema({
         trim: true,
         
     },
-    rol: {
-        type: String,
-        enum: ['guest', 'admin'], 
-        required: true
-    }
+    // rol: {
+    //     type: String,
+    //     enum: ['guest', 'admin'], 
+    //     required: true
+    // }
 
 },{timestamps:true})
 

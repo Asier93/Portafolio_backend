@@ -4,7 +4,7 @@ import Project from '../models/project.model.js'
 export const getProjects = async (req, res) => {
    try {
     const projects = await Project.find({
-        user:req.user.id,  //le decimos q traiga las tareas del usuario
+        user:req.user.id,  //le decimos q traiga los priyectos del usuario
     }).populate('user');
         res.json(projects);
    } catch (error) {
