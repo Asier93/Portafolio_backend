@@ -15,10 +15,11 @@ export const getProjects = async (req, res) => {
 export const createProject = async (req, res) => {
   try {
     console.log(req.body); // Verifica los datos recibidos
-    const { title, description, date } = req.body;
+    const { title, description, imageUrl, date } = req.body;
     const newProject = new Project({
       title,
       description,
+      imageUrl,
       date,
       user: req.user.id,
     });

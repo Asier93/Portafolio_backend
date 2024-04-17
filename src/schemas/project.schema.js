@@ -7,5 +7,8 @@ export const createProjectSchema = z.object({
   description: z.string({
     required_error: "Description must be string",
   }),
+  imageUrl: z.string({
+    required_error: "Description must be string",
+  }),
   date: z.string().datetime().optional,
 });

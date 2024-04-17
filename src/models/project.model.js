@@ -10,6 +10,10 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    imageUrl: {
+      type: String, // Campo para almacenar la URL de la imagen
+      required: true,
+    },
     date: {
       type: Date,
       default: Date.now,
