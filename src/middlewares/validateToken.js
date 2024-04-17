@@ -12,6 +12,5 @@ export const authRequired = (req, res, next) => {
   });
 };
 
-
 //TOKEN_SECRET es una única clave secreta utilizada para firmar y verificar los tokens JWT en una aplicación o sistema
-// req: almacena la información del usuario decodificado en el objeto de solicitud req, 
+// req: almacena la información del usuario decodificado en el objeto de solicitud req,

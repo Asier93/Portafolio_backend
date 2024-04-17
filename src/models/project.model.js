@@ -7,20 +7,12 @@ const projectSchema = new mongoose.Schema(
       required: true,
     },
     description: {
-      type: Date,
-      required: true,
-    },
-    url: {
-        type: String,
-        required: true,
-    },
-    images: {
-        type: [String],
-        required: true,
-    },
-    stack: {
       type: String,
       required: true,
+    },
+    date: {
+      type: Date,
+      default: Date.now,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,

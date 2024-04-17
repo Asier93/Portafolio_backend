@@ -7,9 +7,5 @@ export const createProjectSchema = z.object({
   description: z.string({
     required_error: "Description must be string",
   }),
-  url: z.string({
-    required_error: "URL must be string",
-  }),
-  images: z.array(z.string()).optional(), // Array de strings para las imágenes
-  stack: z.array(z.string()).optional(), // Array de strings para el stack
+  date: z.string().datetime().optional,
 });

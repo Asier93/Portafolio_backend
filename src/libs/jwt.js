@@ -9,7 +9,8 @@ export function createAccesToken(payload) {
       {
         expiresIn: "1d",
       },
-      (err, token) => {//callback
+      (err, token) => {
+        //callback
         if (err) reject(err);
         resolve(token);
       }
