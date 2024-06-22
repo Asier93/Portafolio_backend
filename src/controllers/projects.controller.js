@@ -1,10 +1,9 @@
-//peticiones hacia la base de datos
 import Project from "../models/project.model.js";
 
 export const getProjects = async (req, res) => {
   try {
     const projects = await Project.find({
-      user: req.user.id, //le decimos q traiga los priyectos del usuario
+      user: req.user.id, 
     }).populate("user");
     res.json(projects);
   } catch (error) {
@@ -14,7 +13,7 @@ export const getProjects = async (req, res) => {
 
 export const createProject = async (req, res) => {
   try {
-    console.log(req.body); // Verifica los datos recibidos
+    console.log(req.body);
     const { title, description, imageUrl, date } = req.body;
     const newProject = new Project({
       title,
@@ -26,7 +25,7 @@ export const createProject = async (req, res) => {
     const savedProject = await newProject.save();
     res.json(savedProject);
   } catch (error) {
-    console.error(error); // Agrega un registro del error para depuración
+    console.error(error); 
     return res.status(500).json({ message: "Something went wrong" });
   }
 };

@@ -7,4 +7,3 @@ export const validateSchema = (schema) => (req, res, next) => {
   }
 };
 
-//parser: analizar o interpretar datos

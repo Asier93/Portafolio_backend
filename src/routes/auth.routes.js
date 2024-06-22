@@ -15,7 +15,7 @@ router.post("/register", validateSchema(registerSchema), register);
 router.post("/login", validateSchema(loginSchema), login);
 router.post("/logout", logout);
 router.get("/verify", verifyToken);
-router.get("/profile", authRequired, profile); //son funciones que se van a ejecutar antes q llegue a una ruta// ruta protegida(validar token)
+router.get("/profile", authRequired, profile); 
 
 export default router;
 

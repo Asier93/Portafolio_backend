@@ -1,26 +1,26 @@
 import User from "../models/user.model.js";
-import bcrypt from "bcryptjs"; //npm i bcryptjs
+import bcrypt from "bcryptjs"; 
 import {createAccesToken} from "../libs/jwt.js"
 import jwt from "jsonwebtoken";
 import {TOKEN_SECRET} from '../config.js'
 
 export const register = async (req, res) => {
-    const { email, password, username } = req.body; //abstraer
+    const { email, password, username } = req.body; 
     try {
-      const userFound = await User.findOne({ email });//validacion del usuario
+      const userFound = await User.findOne({ email });
       if (userFound)
         return res.status(400).json(["the email already exists"]);
-      const passwordHash = await bcrypt.hash(password, 10); // string aleatorio
+      const passwordHash = await bcrypt.hash(password, 10); 
       const newUser = new User({
         username,
         email,
-        password: passwordHash, // la contraseña va tener como valor
+        password: passwordHash, 
       });
-      const userSaved = await newUser.save(); //guardas al usuario
-      const token = await createAccesToken({ id: userSaved._id }); // le paso el valor qu quiero guardar
-      res.cookie("token", token); // guardo en una cookie
+      const userSaved = await newUser.save(); 
+      const token = await createAccesToken({ id: userSaved._id }); 
+      res.cookie("token", token); 
       res.json({
-        //respondo al frontend
+  
         id: userSaved._id,
         username: userSaved.username,
         password: userSaved.password,
@@ -34,19 +34,18 @@ export const register = async (req, res) => {
   };
 
   export const login = async (req, res) => {
-    const { email, password } = req.body; //comparar la contraseña
+    const { email, password } = req.body; 
     try {
       const userFound = await User.findOne({ email });
-      if (!userFound) return res.status(400).json({ message: "user not found" }); //si no se encontre el user en db
+      if (!userFound) return res.status(400).json({ message: "user not found" }); 
       
-      const isMatch = await bcrypt.compare(password, userFound.password); // compare devuelve true o false
+      const isMatch = await bcrypt.compare(password, userFound.password); 
       if (!isMatch)
         return res.status(400).json({ message: "Incorrect password" });
   
-      const token = await createAccesToken({ id: userFound._id }); // del usuario encontrado va a tomar su id y vas a crear un token con ese id
-      res.cookie("token", token); // guardo en una cookie
+      const token = await createAccesToken({ id: userFound._id }); 
+      res.cookie("token", token); 
       res.json({
-        //respondo al frontend
         id: userFound._id,
         username: userFound.username,
         password: userFound.password,
@@ -61,7 +60,6 @@ export const register = async (req, res) => {
 
   export const logout = (req, res) => {
     res.cookie("token", "", {
-      // el valor va estar resetado a 0
       expires: new Date(0),
     });
     return res.sendStatus(200);
@@ -84,7 +82,7 @@ export const register = async (req, res) => {
     jwt.verify(token, TOKEN_SECRET, async (err, user)=>{
       if (err) return res.status(401).json({message:"Unauthorized"});
   
-      const userFound = await User.findById(user.id) // verifica si el usuario existye esta peticion se haca cadavez q la pagina carga por primera vez
+      const userFound = await User.findById(user.id) 
       if(!userFound) return res.status(401).json({message:"Unauthorized"});
       return res.json({
         id: userFound._id,
