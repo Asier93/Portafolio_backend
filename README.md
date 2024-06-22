@@ -18,11 +18,10 @@
 
 
 ### CRUD
-1. Defino las rutas
-2. creo las funciones que estan en controller.js
-3. Estas funciones() las import en tasks.routes.js
-4. Defino el modelo task
-5.import el modelo en task.controller.js
+1. Creo los schemas y modelos
+2. Defino las rutas
+3. Creo las funciones que estan en controller.js
+4. Compruebo los endpoints en Postman
 
 ### VALIDACIONES DE DATOS
 https://www.npmjs.com/package/zod
