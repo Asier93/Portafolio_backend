@@ -25,8 +25,8 @@
 
 ### VALIDACIONES DE DATOS
 https://www.npmjs.com/package/zod
-- npm i zod 
- Con zod indicamos el tipo de dato, en la carpeta schemas agregamos validaciones
+- npm i zod
+   Con zod indicamos el tipo de dato, en la carpeta schemas agregamos validaciones
 
 ### CORS
 - npm i cors
