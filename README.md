@@ -20,7 +20,7 @@
 ### MVC
 1. Creo los schemas y modelos
 2. Defino las rutas
-3. Creo las funciones que estan en controller.js
+3. Creo las funciones que estan en la carpeta controllers
 4. Compruebo los endpoints en Postman
 
 ## ENDPOINTS
