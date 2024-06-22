@@ -1,15 +1,16 @@
 # Backend
 
-### comandos
+### Comandos y dependencias
 
 - npm init -y
-- npm i express
+- npm i express axios
 - npm i nodemon -D
 - npm i morgan
-- npm install mongoose (validar los datos)
+- npm install mongoose
+- npm install mongodb
 - npm install cookie-parser
 
-### ENCRIPTAR UNA CONTRASEÑA Y GENERAN UN TOKEN
+### ENCRIPTAR UNA CONTRASEÑA Y GENERAR UN TOKEN
 - npm i bcryptjs
 - npm install bcrypt
 - npm i jsonwebtoken
@@ -25,7 +26,7 @@
 
 ### VALIDACIONES DE DATOS
 https://www.npmjs.com/package/zod
-- npm i zod (modulo)
+- npm i zod 
  Con zod indicamos el tipo de dato, en la carpeta schemas agregamos validaciones
 
 ### CORS
