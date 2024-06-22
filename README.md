@@ -1,6 +1,6 @@
-# Backend
+# Instrucciones
 
-### Comandos y dependencias
+### Comandos y dependencias instalados (npm install)
 
 - npm init -y
 - npm i express axios
