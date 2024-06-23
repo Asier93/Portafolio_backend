@@ -2,11 +2,13 @@ import Project from "../models/project.model.js";
 
 export const getProjects = async (req, res) => {
   try {
-    const projects = await Project.find({ user: req.user.id }).populate("user");
+    const projects = await Project.find({ user: req.user.id }).select(
+      "_id title imageUrl"
+    );
     res.json(projects);
   } catch (error) {
-    console.error("Error fetching projects:", error);
-    res.status(500).json({ message: "Something went wrong" });
+    console.error("Error fetching projects:", error.message);
+    res.status(500).json({ message: "Failed to fetch projects" });
   }
 };
 
@@ -23,8 +25,8 @@ export const createProject = async (req, res) => {
     const savedProject = await newProject.save();
     res.json(savedProject);
   } catch (error) {
-    console.error("Error creating project:", error);
-    res.status(500).json({ message: "Something went wrong" });
+    console.error("Error creating project:", error.message);
+    res.status(500).json({ message: "Failed to create project" });
   }
 };
 
@@ -36,8 +38,8 @@ export const getProject = async (req, res) => {
     }
     res.json(project);
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Internal Server Error" });
+    console.error("Error fetching project:", error.message);
+    res.status(500).json({ message: "Failed to fetch project details" });
   }
 };
 
@@ -49,8 +51,8 @@ export const deleteProject = async (req, res) => {
     }
     res.sendStatus(204);
   } catch (error) {
-    console.error("Error deleting project:", error);
-    res.status(500).json({ message: "Something went wrong" });
+    console.error("Error deleting project:", error.message);
+    res.status(500).json({ message: "Failed to delete project" });
   }
 };
 
@@ -64,7 +66,7 @@ export const updateProject = async (req, res) => {
     }
     res.json(project);
   } catch (error) {
-    console.error("Error updating project:", error);
-    res.status(500).json({ message: "Something went wrong" });
+    console.error("Error updating project:", error.message);
+    res.status(500).json({ message: "Failed to update project" });
   }
 };

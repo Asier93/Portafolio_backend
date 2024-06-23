@@ -9,10 +9,15 @@ import {
 } from "../controllers/projects.controller.js";
 
 const router = Router();
+
 router.get("/projects", authRequired, getProjects);
-router.post("/projects", authRequired, createProject);
+
 router.get("/projects/:id", authRequired, getProject);
-router.delete("/projects/:id", authRequired, deleteProject);
+
+router.post("/projects", authRequired, createProject);
+
 router.put("/projects/:id", authRequired, updateProject);
+
+router.delete("/projects/:id", authRequired, deleteProject);
 
 export default router;
