@@ -5,10 +5,8 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
 import cookieParser from "cookie-parser";
 
-// Configurar cookie parser
 const cookieParserMiddleware = cookieParser();
 
-// Middleware para verificar y establecer cookies
 export const setCookie = (req, res, next) => {
   cookieParserMiddleware(req, res, () => {});
   next();
@@ -31,12 +29,9 @@ export const register = async (req, res) => {
     const userSaved = await newUser.save();
     const token = await createAccessToken({ id: userSaved._id });
 
-    // Establecer cookie con el token
     res.cookie("token", token, {
-      httpOnly: true, // La cookie solo es accesible desde el servidor
-      sameSite: "strict", // Restringir la cookie a peticiones del mismo sitio
-      // secure: true, // Descomentar si usas HTTPS en producción
-      // expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // Opcional: establecer tiempo de expiración
+      httpOnly: true,
+      sameSite: "strict",
     });
 
     res.json({
@@ -63,12 +58,9 @@ export const login = async (req, res) => {
 
     const token = await createAccessToken({ id: userFound._id });
 
-    // Establecer cookie con el token
     res.cookie("token", token, {
       httpOnly: true,
       sameSite: "strict",
-      // secure: true,
-      // expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
     });
 
     res.json({
@@ -84,7 +76,6 @@ export const login = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-  // Limpiar cookie de token al cerrar sesión
   res.cookie("token", "", {
     expires: new Date(0),
   });

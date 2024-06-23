@@ -28,7 +28,7 @@
 - Login (POST): http://localhost:4001/api/login?
 - Verificar token (GET): http://localhost:4001/api/verify
 - Perfil de usuario (GET): http://localhost:4001/api/profile
-- Ver proyectos (GET): http://localhost:4001/api/project
+- Ver proyectos (GET): http://localhost:4001/api/projects
 - Obtener detalles del proyecto (GET): http://localhost:4001/api/projects/{id}
 - Crear proyecto (POST): http://localhost:4001/api/projects
 - Actualizar proyecto (PUT): http://localhost:4001/api/projects/{id}

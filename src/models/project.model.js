@@ -11,7 +11,7 @@ const projectSchema = new mongoose.Schema(
       required: true,
     },
     imageUrl: {
-      type: String, // Campo para almacenar la URL de la imagen
+      type: String,
       required: true,
     },
     date: {
