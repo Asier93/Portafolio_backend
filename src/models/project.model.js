@@ -21,7 +21,7 @@ const projectSchema = new mongoose.Schema(
     live_demo_url: {
       type: String,
     },
-    imageUrls: {
+    imageUrl: {
       type: [String], // Array de strings para múltiples imágenes
     },
     other_links: {
@@ -38,8 +38,8 @@ const projectSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, 
+    timestamps: true,
   }
 );
 
-export default mongoose.model("Project", projectSchema); 
+export default mongoose.model("Project", projectSchema);
