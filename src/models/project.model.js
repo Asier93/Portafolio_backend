@@ -10,9 +10,22 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    imageUrl: {
+    technologies: {
+      type: [String], // Array de strings para tecnologías
+      required: true,
+    },
+    github_url: {
       type: String,
       required: true,
+    },
+    live_demo_url: {
+      type: String,
+    },
+    imageUrls: {
+      type: [String], // Array de strings para múltiples imágenes
+    },
+    other_links: {
+      type: [String], // Array de strings para otros enlaces
     },
     date: {
       type: Date,
@@ -25,8 +38,8 @@ const projectSchema = new mongoose.Schema(
     },
   },
   {
-    timesTamps: true,
+    timestamps: true, 
   }
 );
 
-export default mongoose.model("project", projectSchema);
+export default mongoose.model("Project", projectSchema); 
